@@ -1,5 +1,5 @@
 
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/auth";
 import app from "../../firebase/firebase.init";
 import { useState } from "react";
 
@@ -16,25 +16,38 @@ const Login = () => {
         signInWithPopup(auth, porvider)
             .then(result => {
                 const loggedUser = result.user;
-                // console.log(loggedUser)
                 setUser(loggedUser);
             })
             .catch(error => {
                 console.log('error', error)
             })
     }
-
-    console.log(user)
-
+    const handelSignOut = () => {
+        signOut(auth)
+            .then(() => {
+                setUser(null)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
 
     return (
         <div>
             <div className="mt-20 flex justify-center">
-                <button
-                    onClick={handelGoogleSignIn}
-                    className="btn"
-                >Sign with Google</button>
+
+                {
+                    user ? <button
+                        onClick={handelSignOut}
+                        className="btn"
+                    >Sign Out</button> 
+                    :
+                     <button
+                        onClick={handelGoogleSignIn}
+                        className="btn"
+                    >Sign with Google</button>
+                }
             </div>
 
             {
