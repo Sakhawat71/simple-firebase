@@ -3,6 +3,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Root from "../components/Root/Root";
 import Home from "../components/Home/Home";
 import Login from "../components/LogIn/Login";
+import GoogleLogin from "../components/LogIn/GoogleLogin";
 
 const MyRoute = createBrowserRouter([
     {
@@ -20,7 +21,7 @@ const MyRoute = createBrowserRouter([
             },
             {
                 path: "/blogs",
-                element: <div>Blogs</div>
+                element: <GoogleLogin></GoogleLogin>
             }
         ]
     }
