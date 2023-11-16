@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const Login = () => {
 
-    const [user, setUser] = useState([]);
+    const [user, setUser] = useState(null);
 
     const auth = getAuth(app);
     const porvider = new GoogleAuthProvider()

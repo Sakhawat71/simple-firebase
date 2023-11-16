@@ -25,7 +25,6 @@ const GoogleLogin = () => {
         })
     }
 
-    console.log(user)
 
     return (
         <div>
